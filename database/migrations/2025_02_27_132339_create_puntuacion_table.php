@@ -11,8 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
+        //De esta tabla, sacamos la puntuacion media de cada producto
+        //Pero principalmente, lo que guarda la puntuacion individual de un usuario sobre una pieza
         Schema::create('puntuacion', function (Blueprint $table) {
             $table->id();
+            $table->integer('puntuacion');
+            $table->foreignId('pieza_id')->constrained('pieza')->onDelete('cascade');
+            $table->foreignId('usuario_id')->constrained('usuario')->onDelete('cascade');
             $table->timestamps();
         });
     }

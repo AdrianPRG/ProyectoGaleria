@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('galeria', function (Blueprint $table) {
             $table->id();
             $table->integer('id_usuario');
-            $table->integer('id_pieza');
+            $table->integer('id_puntuacion');
             $table->timestamps();
         });
     }

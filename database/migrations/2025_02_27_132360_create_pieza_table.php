@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('marca');
             $table->string('modelo');
             $table->integer('puntuacion');
-            $table->foreignId('categoria_id')->constrained('categoria');
-            $table->foreignId('fabricante_id')->constrained('fabricante');
+            $table->foreignId('categoria_id')->constrained('categoria')->onDelete('cascade');
+            $table->foreignId('fabricante_id')->constrained('fabricante')->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('fabricante', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('descripcion');
+            $table->string('imagen');
+            $table->boolean('activo');
             $table->timestamps();
         });
     }
