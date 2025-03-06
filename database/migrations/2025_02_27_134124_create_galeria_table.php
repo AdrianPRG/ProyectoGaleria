@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('galeria', function (Blueprint $table) {
             $table->id();
-            $table->integer('id_usuario');
+            $table->integer('user_id');
             $table->integer('id_puntuacion');
             $table->timestamps();
         });
