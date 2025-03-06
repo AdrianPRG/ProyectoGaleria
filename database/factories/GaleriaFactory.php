@@ -14,7 +14,7 @@ class GaleriaFactory extends Factory
     public function definition(): array
     {
         return [
-            'id_usuario' => $this->faker->randomNumber(1, 10),
+            'user_id' => $this->faker->randomNumber(1, 10),
             'id_puntuacion' => $this->faker->randomNumber(1, 10),
         ];
     }

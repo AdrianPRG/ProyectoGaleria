@@ -16,7 +16,7 @@ class PuntuacionFactory extends Factory
         return [
             'puntuacion' => $this->faker->randomNumber(2),
             'pieza_id' => $this->faker->randomNumber(2),
-            'usuario_id' => $this->faker->randomNumber(2),
+            'user_id' => $this->faker->randomNumber(2),
         ];
     }
 }

@@ -15,8 +15,10 @@ class PiezaController extends Controller
      */
     public function index()
     {
-        $piezas = Pieza::with('puntuacion')->paginate(9); // Paginación para mejor rendimiento
-        return view('PiezaView', compact('piezas'));
+        //Se obtienen las piezas con sus puntuaciones
+        // Paginación para mejor rendimiento
+        $piezas = Pieza::with('puntuacion')->paginate(9);
+        return view('piezas', compact('piezas'));
     }
 
     /**

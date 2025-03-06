@@ -5,13 +5,26 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PiezaController;
 use App\Http\Controllers\ComentarioController;
 
+//Ruta de la página principal, sin autenticación
 Route::get('/', function () {
     return view('welcome');
 });
 
+
+//Ruta de la página principal, con autenticación
+//Aqui se mostrará el dashboard, que es la página principal de la aplicación
+//Si el usuario no está autenticado, será redirigido a la página de inicio de sesión
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+/*
+
+Esto sirve para que solo se puedan acceder a las rutas que estén dentro de este grupo si el usuario está autenticado.
+Si el usuario no está autenticado, será redirigido a la página de inicio de sesión.
+
+*/
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

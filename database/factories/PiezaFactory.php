@@ -16,13 +16,15 @@ class PiezaFactory extends Factory
         return [
             'nombre' => $this->faker->name,
             'descripcion' => $this->faker->text,
-            'tipo' => $this->faker->word,
+            //Como el tipo es un enum, se le pasa un valor aleatorio de los que tiene
+
+            'tipo' => $this->faker->randomElement(['reloj', 'brujula','collar','pulsera','anillo','pendiente']),
             'imagen' => $this->faker->word,
             'marca' => $this->faker->word,
             'modelo' => $this->faker->word,
             'puntuacion' => $this->faker->randomNumber(2),
             'categoria_id' => $this->faker->randomNumber(1),
-            'fabricante_id' => $this->faker->randomNumber(1),
+            'fabricante_id' => $this->faker->randomNumber(1, 10),
 
         ];
     }
