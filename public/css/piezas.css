@@ -1,0 +1,96 @@
+html, body {
+    margin: 0;
+    width: 100%;
+    background-color: rgb(203, 207, 205);
+}
+
+div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Contenedor principal */
+.galeria {
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: auto;
+    flex-wrap: wrap;
+    gap: 15px; /* Espacio entre las piezas */
+    background-color: rgb(227, 231, 220);
+    padding: 20px; /* Padding para mayor separación */
+}
+
+/* Estilo de cada pieza */
+.pieza {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(178, 194, 207);
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    width: 220px; /* Mantener tamaño pequeño pero adecuado */
+    height: 330px; /* Ajustado para dar más espacio */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    padding: 10px;
+    gap: 10px; /* Espacio entre imagen y texto */
+    background-image: url('storage/imagenesApp/relojes.png');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Efecto hover */
+.pieza:hover {
+    transform: translateY(-5px);
+}
+
+/* Imagen dentro de la pieza */
+.pieza img {
+    width: 220px; /* Aumentado para que ocupe más espacio */
+    height: 160px; /* Aumentado */
+    border-radius: 8px;
+    margin-bottom: 10px; /* Reducido para que la imagen ocupe más */
+}
+
+/* Estilo de los textos dentro de las piezas */
+.pieza h2 {
+    font-size: 13px; /* Reducido para que la información ocupe menos */
+    font-weight: bold;
+    font-family: 'Times New Roman', Times, serif;
+    color: black;
+    margin-bottom: 5px; /* Reducido */
+}
+
+/* Secciones más compactas */
+.seccion {
+    background-color:rgb(244, 247, 249);
+    opacity: 0.7;
+    width: 180px; /* Secciones más pequeñas */
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: center;
+    align-items: center;
+    height: 18px; /* Más pequeño */
+    padding-top: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    gap: 20px; /* Espaciado más pequeño entre icono y texto */
+}
+
+.seccion img {
+    width: 20px; /* Iconos más pequeños */
+    height: 20px;
+    padding-top: 10px;
+    object-fit: cover;
+}
+
+.seccion p {
+    color: black;
+    font-size: 10px; /* Texto más pequeño */
+    padding-left: 10px;
+}
