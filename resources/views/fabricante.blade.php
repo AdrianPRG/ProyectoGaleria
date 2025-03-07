@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
 <style>
     /* Estilo General */
     body {
@@ -71,7 +68,6 @@
         padding-bottom: 10px;
     }
 </style>
-
 <div class="container">
     <div class="row">
         <!-- Columna principal con detalles del fabricante -->
@@ -104,7 +100,7 @@
                                         <h5 class="card-title">{{ $pieza->nombre }}</h5>
                                         <p><strong>Tipo:</strong> {{ $pieza->tipo }}</p>
                                         <p><strong>Modelo:</strong> {{ $pieza->modelo }}</p>
-                                        <a href="{{ route('pieza.show', $pieza->id) }}" class="btn btn-primary">Ver Pieza</a>
+                                        <!--<a href="{{ route('pieza.show', $pieza->id) }}" class="btn btn-primary">Ver Pieza</a><-->
                                     </div>
                                 </div>
                             </div>
@@ -117,4 +113,3 @@
         </div>
     </div>
 </div>
-@endsection

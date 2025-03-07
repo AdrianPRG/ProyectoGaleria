@@ -1,4 +1,5 @@
 <link href="{{ asset('css/piezas.css') }}" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <div class="galeria">
     @foreach($piezas as $pieza)
         <div class="pieza">
@@ -7,19 +8,22 @@
             
             <div class="seccion">
                 <img src="{{ asset('storage/imagenesApp/star.png')}}" alt="Puntuación">
-                <p class="tipo">Puntuación: {{ $pieza->puntuacion }}</p>
+                <p class="tipo"><b>Puntuacion: {{ $pieza->puntuacion }}</b></p>
             </div>
 
             <div class="seccion">
                 <img src="{{ asset('storage/imagenesApp/tipo.png')}}" alt="Tipo">
-                <p class="tipo">Tipo: {{ $pieza->tipo }}</p>
+                <p class="tipo"><b>Tipo de Pieza: {{ $pieza->tipo }}</b></p>
             </div>
 
             <div class="seccion">
                 <img src="{{ asset('storage/imagenesApp/marca.png')}}" alt="Marca">
-                <p class="marca">Marca: {{ $pieza->marca }}</p>
+                <p class="marca">Marca de pieza: {{ $pieza->marca }}</p>
+                <!-- Enlace para ir a fabricante
+                <a href="fabricante/{{ $pieza->fabricante_id }}">Marca</a> -->
+
             </div>
-            <a href=""><i class="fa fa-eye"></i>
+            <a href=""><i class="fa fa-eye"></i></a>
         </div>
     @endforeach
 </div>
