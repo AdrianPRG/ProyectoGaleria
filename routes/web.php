@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PiezaController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Controllers\FabricanteController;
 
 //Ruta de la página principal, sin autenticación
 Route::get('/', function () {
@@ -39,6 +40,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/pieza/{id}/editar', [PiezaController::class, 'edit'])->name('pieza.edit');
     Route::put('/pieza/{id}', [PiezaController::class, 'update'])->name('pieza.update');
     Route::delete('/pieza/{id}', [PiezaController::class, 'destroy'])->name('pieza.destroy');
+
+    // Fabricantes
+    Route::get('/fabricante/{id}', [FabricanteController::class, 'show'])->name('fabricante.show');
 
     // Comentarios
     Route::post('/comentarios', [ComentarioController::class, 'store'])->name('comentarios.store');
