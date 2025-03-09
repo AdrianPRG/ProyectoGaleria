@@ -1,0 +1,149 @@
+/* Estilo general */
+body {
+    background-color: #003366;
+    color: #C0C0C0;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 23px;
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+
+/* Contenedor principal */
+.container {
+    padding-top: 60px;
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Botón "Salir de Fabricante" */
+.exit-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #ff4c4c 0%, #ff2a2a 100%);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.exit-button:hover {
+    background: linear-gradient(135deg, #ff2a2a 0%, #ff4c4c 100%);
+    transform: translateY(-2px);
+}
+
+/* Botón "Ver Pieza" */
+.view-piece-button {
+    background: #003366;
+    border: none;
+    font-weight: bold;
+    color: white;
+    padding: 10px 14px;
+    text-transform: uppercase;
+    border-radius: 8px;
+    transition: background 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.view-piece-button:hover {
+    background: #336699;
+    transform: translateY(-2px);
+}
+
+/* Estilo de las tarjetas */
+.card {
+    background: #FFFFFF;
+    border: 1px solid #003366;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px ;
+    width: 100%;
+    max-width: 800px; /* Limitar el ancho máximo para ambas tarjetas */
+    border: 2px solid #000000;
+    margin-bottom: 20px; /* Espacio entre tarjetas */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 51, 102, 0.3);
+}
+
+/* Títulos y contenido de la tarjeta */
+.card-title {
+    font-size: 26px;
+    font-weight: bold;
+    color: #003366;
+}
+
+.card-body p {
+    color: #000000;
+}
+
+.card-img-top {
+    border-bottom: 3px solid #003366;
+    height: 300px; /* Aumentar la altura de la imagen */
+    object-fit: cover;
+}
+
+/* Contenedor de Piezas */
+.piezas-container {
+    background: #FFFFFF;
+    padding: 50px; /* Ajusté el padding para que se vea más equilibrado */
+    border-radius: 8px;
+    border: 1px solid #003366;
+    border: 2px solid #000000;
+    width: 90%; /* Usamos todo el ancho disponible */
+    max-width: 800px; /* Limitar el ancho máximo al igual que el primer cuadrado */
+    margin: 0 auto; /* Centrado horizontal */
+}
+
+/* Título de las piezas */
+.piezas-container h4 {
+    color: #003366;
+    font-size: 22px;
+    border-bottom: 2px solid #003366;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Estilos para las piezas (en columnas) */
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las piezas dentro de la fila */
+    gap: 20px; /* Agrega espacio entre las columnas */
+}
+
+.col-md-4 {
+    width: 45%; /* Ajustamos el tamaño a un 45% */
+    margin-bottom: 20px;
+    padding: 0 10px;
+}
+
+.card-body h5 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #003366;
+}
+
+/* Añadir un borde entre las secciones */
+.card-body p {
+    margin-bottom: 10px;
+}
