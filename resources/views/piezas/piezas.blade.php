@@ -24,7 +24,7 @@
                 <a href="fabricante/{{ $pieza->fabricante_id }}">Marca</a> -->
 
             </div>
-            <a href=""><i class="fa fa-eye"></i></a>
+            <a href="pieza/{{ $pieza->id }}"><i class="fa fa-eye"></i></a>
         </div>
     @endforeach
 </div>

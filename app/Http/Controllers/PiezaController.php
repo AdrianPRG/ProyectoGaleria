@@ -18,7 +18,7 @@ class PiezaController extends Controller
         //Se obtienen las piezas con sus puntuaciones
         // Paginación para mejor rendimiento
         $piezas = Pieza::with('puntuacion')->paginate(30);
-        return view('piezas', compact('piezas'));
+        return view('piezas.piezas', compact('piezas'));
     }
 
     /**
@@ -27,7 +27,7 @@ class PiezaController extends Controller
     public function show($id)
     {
         $pieza = Pieza::with(['comentarios', 'puntuacion'])->findOrFail($id);
-        return view('pieza', compact('pieza'));
+        return view('piezas.pieza', compact('pieza'));
     }
 
     /**

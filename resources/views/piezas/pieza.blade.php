@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
 <div class="container mt-5">
     <div class="row">
         <div class="col-md-8">
@@ -13,13 +10,10 @@
                     <p><strong>Modelo:</strong> {{ $pieza->modelo }}</p>
                     <p><strong>Tipo:</strong> {{ $pieza->tipo }}</p>
                     <p><strong>Descripción:</strong> {{ $pieza->descripcion }}</p>
-                    <p><strong>Puntuación Promedio:</strong> 
-                        @if($pieza->puntuacion->avg('valor'))
-                            ⭐ {{ number_format($pieza->puntuacion->avg('valor'), 1) }}
-                        @else
-                            Sin puntuaciones
-                        @endif
-                    </p>
+                    <p><strong>Fabricante</strong><a href="/fabricante/{{ $pieza->id }}">Ver</a></p>
+                    <!--<p><strong>Puntuación Promedio:</strong> 
+                        
+                    </p> -->
 
                     <!-- Comentarios -->
                     <div class="mt-4">
@@ -56,20 +50,6 @@
                 </div>
             </div>
         </div>
-        <!-- Información adicional o enlaces a otras piezas -->
-        <div class="col-md-4">
-            <h5>Más Piezas</h5>
-            <ul class="list-group">
-                @foreach($piezas as $pieza)
-                    <li class="list-group-item">
-                        <a href="{{ route('pieza.show', $pieza->id) }}">
-                            <img src="{{ asset('storage/' . $pieza->imagen) }}" alt="{{ $pieza->nombre }}" class="img-thumbnail" width="50">
-                            {{ $pieza->nombre }}
-                        </a>
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+
     </div>
 </div>
-@endsection
