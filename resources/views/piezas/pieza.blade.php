@@ -50,7 +50,7 @@
                     </div>
                     <div class="seccion">
                         <img src="{{ asset('storage/imagenesApp/fabricante.png')}}" alt="Imagen">
-                        <p><strong>Ver fabricante</strong><a href="/fabricante/{{ $pieza->id }}"><i class="ms-3 fa fa-eye"></i></a></p>
+                        <p><strong>Ver fabricante</strong><a href="/fabricante/{{ $pieza->fabricante_id }}"><i class="ms-3 fa fa-eye"></i></a></p>
                     </div>
                     <!--<p><strong>Puntuación Promedio:</strong> 
                         
