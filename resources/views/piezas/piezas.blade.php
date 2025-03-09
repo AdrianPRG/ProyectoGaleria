@@ -20,9 +20,6 @@
             <div class="seccion">
                 <img src="{{ asset('storage/imagenesApp/marca.png')}}" alt="Marca">
                 <p class="marca">Marca de pieza: {{ $pieza->marca }}</p>
-                <!-- Enlace para ir a fabricante
-                <a href="fabricante/{{ $pieza->fabricante_id }}">Marca</a> -->
-
             </div>
             <a href="pieza/{{ $pieza->id }}"><i class="fa fa-eye"></i></a>
         </div>

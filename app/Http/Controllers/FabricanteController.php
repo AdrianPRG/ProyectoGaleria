@@ -15,4 +15,6 @@ class FabricanteController extends Controller
         $fabricante = Fabricante::findOrFail($id);
         return view('fabricantes.fabricante', compact('fabricante'));
     }
+
+    
 }
