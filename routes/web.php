@@ -27,6 +27,7 @@ Si el usuario no está autenticado, será redirigido a la página de inicio de s
 
 */
 
+//Middleware para autenticación y solo si el valor de la variable admin es true
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
@@ -35,9 +36,10 @@ Route::middleware('auth')->group(function () {
     // Piezas
     Route::get('/piezas', [PiezaController::class, 'index'])->name('piezas.index');
     Route::get('/pieza/{id}', [PiezaController::class, 'show'])->name('pieza.show');
-    Route::post('/piezas', [PiezaController::class, 'index'])->name('pieza.create');
+    Route::get('/piezas/create', [PiezaController::class, 'create'])->name('piezas.create');
+    Route::post('/piezas/create', [PiezaController::class, 'store'])->name('piezas.create');
+    //El store se usa para crear un comentario cuando se haga una peticion post a pieza/id
     Route::post('/pieza/{id}', [ComentarioController::class, 'store'])->name('pieza.show');
-    Route::get('/pieza/crear', [PiezaController::class, 'create'])->name('pieza.create');
     Route::post('/pieza', [PiezaController::class, 'store'])->name('pieza.store');
     Route::get('/pieza/{id}/editar', [PiezaController::class, 'edit'])->name('pieza.edit');
     Route::put('/pieza/{id}', [PiezaController::class, 'update'])->name('pieza.update');

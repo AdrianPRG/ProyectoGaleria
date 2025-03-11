@@ -5,7 +5,7 @@
 <div class="galeria">
     @if(Auth::user()->is_admin)
        <div class="seccionadmin">
-        <a href="pieza/create" class="btn btn-success">Añadir Pieza</a>
+        <a href="piezas/create" class="btn btn-success">Añadir Pieza</a>
        </div>
     @endif
     @foreach($piezas as $pieza)

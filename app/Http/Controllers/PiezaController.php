@@ -31,11 +31,17 @@ class PiezaController extends Controller
     }
 
     /**
-     * Muestra el formulario para crear una nueva pieza.
+     * Muestra el formulario para crear una nueva pieza. (ADMIN)
      */
     public function create()
     {
-        return view('pieza_create');
+        //LLamamos a las categorias
+        $categorias = \App\Models\Categoria::all();
+        //LLamamos a las fabricantes
+        $fabricantes = \App\Models\Fabricante::all();
+        //Fusionamos en un array las categorias y fabricantes
+        $conjunto = ["categorias"=>$categorias,"fabricantes"=>$fabricantes];
+        return view('piezas.pieza_create',compact('conjunto'));
     }
 
     /**
@@ -47,14 +53,14 @@ class PiezaController extends Controller
             'nombre' => 'required|string|max:255',
             'descripcion' => 'required|string',
             'tipo' => 'required|string',
-            'imagen' => 'required|image|mimes:jpeg,png,jpg|max:2048',
+            'imagen' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'marca' => 'required|string',
             'modelo' => 'required|string',
             'categoria_id' => 'required|exists:categorias,id',
             'fabricante_id' => 'required|exists:fabricantes,id',
         ]);
 
-        $path = $request->file('imagen')->store('piezas', 'public');
+        $path = $request->file('imagen')->store('piezas/pieza' + $request->nombre, 'public');
 
         Pieza::create([
             'nombre' => $request->nombre,

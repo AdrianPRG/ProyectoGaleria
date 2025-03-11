@@ -21,7 +21,6 @@ class Pieza extends Model
         'imagen',
         'marca',
         'modelo',
-        'puntuacion',
         'categoria_id',
         'fabricante_id'
     ];
