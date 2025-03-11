@@ -94,3 +94,13 @@ div {
     font-size: 10px; /* Texto más pequeño */
     padding-left: 10px;
 }
+
+.seccionAdmin{
+    width: 100%;
+    align-items: start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-top: 10px;
+}

@@ -25,8 +25,8 @@
                 @if (Route::has('login'))
                     <nav class="flex items-center justify-between gap-4 lg:gap-8">
                         @auth
-                            <a href="{{ url('/dashboard') }}" class="inline-block px-5 py-1.5 border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] rounded-md text-sm font-medium leading-normal transition-all hover:bg-[#191400] hover:text-white">
-                                Dashboard
+                            <a href="{{ url('/piezas') }}" class="inline-block px-5 py-1.5 border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] rounded-md text-sm font-medium leading-normal transition-all hover:bg-[#191400] hover:text-white">
+                                Inicio
                             </a>
                         @else
                             <a href="{{ route('login') }}" class="inline-block px-5 py-1.5 text-[#1b1b18] border border-transparent hover:border-[#19140035] rounded-md text-sm font-medium leading-normal transition-all hover:bg-[#191400] hover:text-white">
@@ -46,9 +46,7 @@
             <div class="text-center lg:text-left lg:pl-8">
                 <h1 class="text-5xl font-bold text-[#191400] mb-4">Bienvenido al Museo de Relojes</h1>
                 <p class="text-lg mb-6 px-4 lg:px-0">Explora la fascinante historia de la medición del tiempo a través de nuestra extensa colección de relojes, desde los antiguos hasta los más modernos.</p>
-                <a href="#exhibiciones" class="mt-4 inline-block px-6 py-3 text-white bg-[#191400] hover:bg-[#191501] rounded-md text-lg font-medium leading-normal transition-all hover:shadow-lg">
-                    Ver Exhibiciones
-                </a>
+               
             </div>
         </main>
 
