@@ -35,6 +35,7 @@ Route::middleware('auth')->group(function () {
     // Piezas
     Route::get('/piezas', [PiezaController::class, 'index'])->name('piezas.index');
     Route::get('/pieza/{id}', [PiezaController::class, 'show'])->name('pieza.show');
+    Route::post('/piezas', [PiezaController::class, 'index'])->name('pieza.create');
     Route::post('/pieza/{id}', [ComentarioController::class, 'store'])->name('pieza.show');
     Route::get('/pieza/crear', [PiezaController::class, 'create'])->name('pieza.create');
     Route::post('/pieza', [PiezaController::class, 'store'])->name('pieza.store');
