@@ -1,11 +1,11 @@
 <link href="{{ asset('css/fabricante.css') }}" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+@include('components.cabecera')
 <div class="container">
-    <!-- Botón para salir de la página del fabricante -->
-    <a href="/piezas" class="exit-button">Salir de Fabricante</a>
-    
+    <!-- Botón para salir de la página del fabricante -->    
     <div class="row">
+    <a href="/piezas" class="exit-button">Salir de Fabricante</a>
+
         <!-- Columna principal con detalles del fabricante -->
         <div class="col-md-8">
             <div class="card">

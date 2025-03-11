@@ -1,12 +1,11 @@
 <link rel="stylesheet" href="{{ asset('css/pieza.css') }}">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
+@include('components.cabecera')
 <div class="container mt-5 me-5">
 <a href="/piezas" class="mb-4 btn btn-warning">Volver a piezas</a>
     <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-8 mb-4">
             <!-- Imagen y detalles de la pieza -->
             <div class="card">
                 <div class="card-body">
@@ -61,10 +60,14 @@
                     <!-- Formulario para dejar un comentario -->
                     @auth
                     <div class="mt-4">
-                        <form action="{{ route('comentarios.store') }}" method="POST">
+                        <!-- Al hacer un comentario, se redirige a la pieza -->
+                        <form action="/pieza/{{ $pieza->id }}" method="POST">
                             @csrf
                             <div class="form-group">
                                 <label for="comentario">Deja tu comentario:</label>
+                                <!--Se guarda como un valor oculto el valor de la pieza -->
+                                <input type="hidden" name="pieza_id" value="{{ $pieza->id }}">
+                                
                                 <textarea name="comentario" id="comentario" class="form-control" rows="4" required></textarea>
                             </div>
                             <button type="submit" class="btn btn-success mt-3">Publicar Comentario</button>
@@ -77,12 +80,16 @@
                     <!-- Comentarios -->
                     <div class="mt-4">
                         <h5>Comentarios:</h5>
+                        <!--Se comprueba si hay comentarios-->
                         @if($pieza->comentarios->count())
                         <ul class="list-group">
+                            <!-- LLamamos a la funcion comentarios de pieza, para obtener los comentarios de la pieza -->
                             @foreach($pieza->comentarios as $comentario)
                             <li class="list-group-item">
-                                <strong>{{ $comentario->usuario->name }}:</strong>
-                                <p>{{ $comentario->texto }}</p>
+                                <!--LLamamos a la funcion getUserName para obtener el nombre de usuario-->
+                                <strong>{{ $comentario->getUserName($comentario->user_id) }}:</strong>
+                                <!--Obtenemos el comentario-->
+                                <p>{{ $comentario->comentario }}</p>
                             </li>
                             @endforeach
                         </ul>

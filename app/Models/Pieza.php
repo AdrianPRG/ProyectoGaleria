@@ -13,6 +13,7 @@ class Pieza extends Model
     protected $table = 'pieza';
     protected $primaryKey = 'id';
 
+    //Campos de la tabla
     protected $fillable = [
         'nombre',
         'descripcion',
@@ -25,11 +26,13 @@ class Pieza extends Model
         'fabricante_id'
     ];
 
+    //Accede a la tabla comentarios y saca los comentarios de la pieza
     public function comentarios()
     {
         return $this->hasMany(Comentario::class, 'pieza_id');
     }
 
+    //Accede a la tabla puntuacion y saca las puntuaciones de la pieza
     public function puntuacion()
     {
         return $this->hasMany(Puntuacion::class, 'pieza_id');
