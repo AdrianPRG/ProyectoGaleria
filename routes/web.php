@@ -6,6 +6,7 @@ use App\Http\Controllers\PiezaController;
 use App\Http\Controllers\ComentarioController;
 use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\FabricanteController;
+use App\Http\Controllers\SocialiteController;
 use App\Models\Pieza;
 
 //Ruta de la página principal, sin autenticación
@@ -67,6 +68,8 @@ Route::get('/fabricantes/create', [FabricanteController::class, 'create'])->name
 Route::post('/fabricantes/create', [FabricanteController::class, 'store'])->name('fabricantes.create')->middleware([IsAdmin::class, 'auth']);
 Route::get('/fabricante/{id}/eliminar', [FabricanteController::class, 'eliminar'])->name('fabricantes.create')->middleware([IsAdmin::class, 'auth']);
 
-
+//Rutas para autenticación con GitHub
+Route::get('auth/github', [SocialiteController::class, 'redirectToGitHub']);
+Route::get('auth/github/callback', [SocialiteController::class, 'handleGitHubCallback']);
 
 require __DIR__.'/auth.php';

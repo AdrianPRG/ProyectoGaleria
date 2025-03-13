@@ -47,6 +47,11 @@
                     {{ __('Log in') }}
                 </x-button>
             </div>
+
+            <a href="{{ url('auth/github') }}">
+            Iniciar sesión con GitHub
+            </a>
+
         </form>
     </x-authentication-card>
 </x-guest-layout>
