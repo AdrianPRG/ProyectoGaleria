@@ -1,8 +1,8 @@
 /* Estilo general */
 body {
-    background-color: #003366;
-    color: #C0C0C0;
-    font-family: 'Times New Roman', Times, serif;
+    background-color: #ffffff; /* Fondo blanco */
+    color: #003366; /* Texto azul oscuro */
+    font-family: 'Arial', sans-serif; /* Fuente moderna */
     font-size: 23px;
     line-height: 1.6;
     padding: 0;
@@ -13,7 +13,7 @@ body {
 /* Contenedor principal */
 .container {
     padding-top: 60px;
-    width: 50%;
+    width: 60%;
     margin: 0 auto;
     text-align: center;
     display: flex;
@@ -26,7 +26,7 @@ body {
     position: absolute;
     top: 20px;
     right: 20px;
-    background: linear-gradient(135deg, #ff4c4c 0%, #ff2a2a 100%);
+    background: linear-gradient(135deg, #ff6f61 0%, #ff3d3b 100%); /* Gradiente moderno */
     border: none;
     color: white;
     font-weight: bold;
@@ -39,13 +39,13 @@ body {
 }
 
 .exit-button:hover {
-    background: linear-gradient(135deg, #ff2a2a 0%, #ff4c4c 100%);
+    background: linear-gradient(135deg, #ff3d3b 0%, #ff6f61 100%);
     transform: translateY(-2px);
 }
 
 /* Botón "Ver Pieza" */
 .view-piece-button {
-    background: #003366;
+    background: #003366; /* Azul oscuro */
     border: none;
     font-weight: bold;
     color: white;
@@ -59,25 +59,25 @@ body {
 }
 
 .view-piece-button:hover {
-    background: #336699;
+    background: #00509d; /* Azul más claro */
     transform: translateY(-2px);
 }
 
 /* Estilo de las tarjetas */
 .card {
-    background: #FFFFFF;
-    border: 1px solid #003366;
+    background: #ffffff; /* Fondo blanco */
+    border: 1px solid #003366; /* Borde azul */
     border-radius: 12px;
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 20px ;
+    margin: 20px;
     width: 100%;
-    max-width: 800px; /* Limitar el ancho máximo para ambas tarjetas */
-    border: 2px solid #000000;
-    margin-bottom: 20px; /* Espacio entre tarjetas */
+    max-width: 800px;
+    margin-bottom: 20px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 51, 102, 0.1); /* Sombra sutil */
 }
 
 .card:hover {
@@ -89,50 +89,49 @@ body {
 .card-title {
     font-size: 26px;
     font-weight: bold;
-    color: #003366;
+    color: #003366; /* Azul oscuro */
 }
 
 .card-body p {
-    color: #000000;
+    color: #333333; /* Texto más suave */
 }
 
 .card-img-top {
-    border-bottom: 3px solid #003366;
+    border-bottom: 3px solid #003366; /* Borde azul */
     height: 300px; /* Aumentar la altura de la imagen */
     object-fit: cover;
 }
 
 /* Contenedor de Piezas */
 .piezas-container {
-    background: #FFFFFF;
-    padding: 50px; /* Ajusté el padding para que se vea más equilibrado */
+    background: #ffffff; /* Fondo blanco */
+    padding: 50px;
     border-radius: 8px;
-    border: 1px solid #003366;
-    border: 2px solid #000000;
-    width: 90%; /* Usamos todo el ancho disponible */
-    max-width: 800px; /* Limitar el ancho máximo al igual que el primer cuadrado */
-    margin: 0 auto; /* Centrado horizontal */
+    border: 2px solid #003366; /* Borde azul */
+    width: 90%;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 /* Título de las piezas */
 .piezas-container h4 {
-    color: #003366;
+    color: #003366; /* Título azul oscuro */
     font-size: 22px;
     border-bottom: 2px solid #003366;
     padding-bottom: 10px;
     text-transform: uppercase;
 }
 
-/* Estilos para las piezas (en columnas) */
+/* Estilos para las piezas */
 .row {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center; /* Centra las piezas dentro de la fila */
-    gap: 20px; /* Agrega espacio entre las columnas */
+    justify-content: center;
+    gap: 20px;
 }
 
 .col-md-4 {
-    width: 45%; /* Ajustamos el tamaño a un 45% */
+    width: 45%;
     margin-bottom: 20px;
     padding: 0 10px;
 }
@@ -140,10 +139,10 @@ body {
 .card-body h5 {
     font-size: 18px;
     font-weight: bold;
-    color: #003366;
+    color: #003366; /* Títulos de las piezas */
 }
 
-/* Añadir un borde entre las secciones */
 .card-body p {
     margin-bottom: 10px;
+    color: #666666; /* Descripción más suave */
 }

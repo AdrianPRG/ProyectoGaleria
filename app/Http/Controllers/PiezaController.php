@@ -56,24 +56,34 @@ class PiezaController extends Controller
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'marca' => 'required|string',
             'modelo' => 'required|string',
-            'categoria_id' => 'required|exists:categorias,id',
-            'fabricante_id' => 'required|exists:fabricantes,id',
+            'categoria_id' => 'required',
+            'fabricante_id' => 'required',
         ]);
 
-        $path = $request->file('imagen')->store('piezas/pieza' + $request->nombre, 'public');
+        // Inicializar la variable de la imagen como null
+    $imagePath = null;
 
-        Pieza::create([
-            'nombre' => $request->nombre,
-            'descripcion' => $request->descripcion,
-            'tipo' => $request->tipo,
-            'imagen' => $path,
-            'marca' => $request->marca,
-            'modelo' => $request->modelo,
-            'categoria_id' => $request->categoria_id,
-            'fabricante_id' => $request->fabricante_id,
-        ]);
+    // Si se subió una imagen, guardarla en la carpeta correspondiente
+    if ($request->hasFile('imagen')) {
+        $carpetaPieza = 'imagenes/piezas/' . $request->nombre . '/';
+        $imagePath = $request->file('imagen')->store($carpetaPieza, 'public');
+    }
 
-        return redirect()->route('piezas.index')->with('success', 'Pieza creada con éxito');
+    // Crear la pieza con la imagen (si existe)
+    Pieza::create([
+        'nombre' => $request->nombre,
+        'descripcion' => $request->descripcion,
+        'tipo' => $request->tipo,
+        'puntuacion' => 0,
+        'imagen' => $imagePath, // Puede ser null si no subió imagen
+        'marca' => $request->marca,
+        'modelo' => $request->modelo,
+        'categoria_id' => $request->categoria_id,
+        'fabricante_id' => $request->fabricante_id,
+    ]);
+
+    return redirect()->route('piezas.index')->with('success', 'Pieza creada con éxito');
+    
     }
 
     /**
@@ -99,8 +109,8 @@ class PiezaController extends Controller
             'imagen' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
             'marca' => 'required|string',
             'modelo' => 'required|string',
-            'categoria_id' => 'required|exists:categorias,id',
-            'fabricante_id' => 'required|exists:fabricantes,id',
+            'categoria_id' => 'required',
+            'fabricante_id' => 'required',
         ]);
 
         if ($request->hasFile('imagen')) {
@@ -119,9 +129,14 @@ class PiezaController extends Controller
      */
     public function destroy($id)
     {
+        //Encontramos la pieza
         $pieza = Pieza::findOrFail($id);
+        //Eliminamos la imagen del directorio
         Storage::disk('public')->delete($pieza->imagen);
+        //Eliminamos la pieza
         $pieza->delete();
+        //Ahora eliminaremos tambien el directorio
+        Storage::disk('public')->deleteDirectory('piezas/' . $pieza->nombre);
 
         return redirect()->route('piezas.index')->with('success', 'Pieza eliminada con éxito');
     }

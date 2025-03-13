@@ -24,7 +24,7 @@
             <div class="mb-3">
                 <label for="tipo" class="form-label">Tipo</label>
                 <select name="tipo" id="tipo" class="form-control">
-                    <option value="reloj">Reloj</option>
+                    <option selected value="reloj">Reloj</option>
                     <option value="brujula">Brujula</option>
                     <option value="collar">Collar</option>
                     <option value="pulsera">Pulsera</option>
@@ -50,18 +50,18 @@
 
             <div class="mb-3">
                 <label for="categoria" class="form-label">Eliga una categoria</label>
-                <select name="categoria" id="categoria" class="form-control">
+                <select name="categoria_id" id="categoria" class="form-control">
                 @foreach ($conjunto['categorias'] as $categoria)
-                    <option value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
+                    <option selected value="{{ $categoria->id }}">{{ $categoria->nombre }}</option>
                 @endforeach
                 </select>
             </div>
 
             <div class="mb-3">
                 <label for="fabricante" class="form-label">Eliga un fabricante</label>
-                <select name="fabricante" id="fabricante" class="form-control">
+                <select name="fabricante_id" id="fabricante" class="form-control">
                 @foreach ($conjunto['fabricantes'] as $fabricante)
-                    <option value="{{ $fabricante->id }}">{{ $fabricante->nombre }}</option>
+                    <option selected value="{{ $fabricante->id }}">{{ $fabricante->nombre }}</option>
                 @endforeach
                 </select>
             </div>

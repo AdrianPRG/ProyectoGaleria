@@ -1,0 +1,64 @@
+/* Diseño general para el formulario */
+.campoRegistro {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaciado entre los campos */
+    margin-bottom: 20px;
+}
+
+.divCampo {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaciado entre el icono y el campo de texto */
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.campoText {
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.campoText:focus {
+    outline: none;
+    border-color: #4CAF50; /* Color cuando el campo tiene el foco */
+}
+
+.campoLabel {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.campoRegistro i {
+    font-size: 20px;
+    color: #555;
+}
+
+.x-authentication-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.x-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.x-button:hover {
+    background-color: #45a049;
+}

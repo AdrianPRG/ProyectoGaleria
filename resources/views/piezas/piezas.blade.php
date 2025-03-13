@@ -10,8 +10,13 @@
     @endif
     @foreach($piezas as $pieza)
         <div class="pieza">
-            <h2>{{ $pieza->nombre }}</h2>
-            <img src="{{ $pieza->imagen }}" alt="{{ $pieza->nombre }}">
+            <div class="seccion tituloPieza">
+            <h2>{{ @substr($pieza->nombre, 0, 20) }}...</h2>
+                @if(Auth::user()->is_admin)
+                    <a class="ms-3" href="pieza/{{ $pieza->id }}/eliminar"> <i class="fa fa-trash rojo"></i></a>
+                @endif
+            </div>
+            <img src="{{ asset('storage/' . $pieza->imagen) }}" alt="{{ $pieza->nombre }}">
             
             <div class="seccion">
                 <img src="{{ asset('storage/imagenesApp/star.png')}}" alt="Puntuación">
@@ -28,6 +33,7 @@
                 <p class="marca">Marca de pieza: {{ $pieza->marca }}</p>
             </div>
             <a href="pieza/{{ $pieza->id }}"><i class="fa fa-eye"></i></a>
+            
         </div>
     @endforeach
 </div>

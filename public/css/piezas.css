@@ -17,85 +17,107 @@ div {
     flex-direction: row;
     justify-content: center;
     height: auto;
+    min-height: 100%;
     flex-wrap: wrap;
-    gap: 15px; /* Espacio entre las piezas */
-    background-color: rgb(227, 231, 220);
-    padding: 20px; /* Padding para mayor separación */
+    gap: 15px;
+    background-color: rgb(240, 245, 247); /* Color más suave */
+    padding: 30px;
+
 }
 
-/* Estilo de cada pieza */
+/* Estilo de cada pieza mejorada */
 .pieza {
     flex-direction: column;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    background-color: rgb(178, 194, 207);
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    width: 220px; /* Mantener tamaño pequeño pero adecuado */
-    height: 340px; /* Ajustado para dar más espacio */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-    padding: 10px;
-    gap: 10px; /* Espacio entre imagen y texto */
-    background-image: url('storage/imagenesApp/relojes.png');
-    background-size: cover;
-    background-position: center;
+    background: rgba(255, 255, 255, 0.2); /* Fondo más ligero */
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 230px;
+    height: 350px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* Sombra más suave */
+    transition: transform 0.3s ease-in-out, background 0.3s ease-in-out;
+    padding: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    gap: 12px;
+    backdrop-filter: blur(8px); /* Menos desenfoque */
 }
 
-/* Efecto hover */
+/* Efecto hover más dinámico */
 .pieza:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    background: rgba(255, 255, 255, 0.3);
 }
 
-/* Imagen dentro de la pieza */
+/* Imagen dentro de la pieza con tamaño fijo */
 .pieza img {
-    width: 220px; /* Aumentado para que ocupe más espacio */
-    height: 160px; /* Aumentado */
-    border-radius: 8px;
-    margin-bottom: 10px; /* Reducido para que la imagen ocupe más */
+    width: 200px; /* Tamaño fijo */
+    height: 150px; /* Tamaño fijo */
+    border-radius: 12px;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+    display: block; /* Asegura que la imagen no tenga espacios alrededor */
+    margin: 0 auto; /* Centra la imagen si es necesario */
+}
+
+/* Efecto leve en la imagen al pasar el ratón */
+.pieza:hover img {
+    transform: scale(1.05);
 }
 
 /* Estilo de los textos dentro de las piezas */
 .pieza h2 {
-    font-size: 13px; /* Reducido para que la información ocupe menos */
+    font-size: 16px;
     font-weight: bold;
-    font-family: 'Times New Roman', Times, serif;
-    color: black;
-    margin-bottom: 5px; /* Reducido */
+    font-family: 'Poppins', sans-serif;
+    color: #333; /* Color de texto más suave */
+    margin-bottom: 5px;
+    text-align: center;
 }
 
-/* Secciones más compactas */
+/* Secciones más compactas y con mejor separación */
 .seccion {
-    background-color:rgb(244, 247, 249);
-    opacity: 0.7;
-    width: 180px; /* Secciones más pequeñas */
+    background: rgba(255, 255, 255, 0.25); /* Fondo más opaco */
+    width: 85%;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     text-align: center;
     align-items: center;
-    height: 18px; /* Más pequeño */
-    padding-top: 5px;
+    height: 35px;
     padding: 5px;
-    border-radius: 5px;
-    gap: 20px; /* Espaciado más pequeño entre icono y texto */
+    border-radius: 8px;
+    gap: 8px;
+    transition: background 0.3s ease-in-out;
 }
 
+.tituloPieza{
+    background-color: transparent;
+}
+
+/*Para el icono rojo*/
+.rojo{
+    color: red;
+}
+
+/* Ajustes a los iconos */
 .seccion img {
-    width: 20px; /* Iconos más pequeños */
-    height: 20px;
-    padding-top: 10px;
-    object-fit: cover;
+    width: 20px; /* Iconos un poco más pequeños */
+    height: 20px; /* Iconos un poco más pequeños */
+    object-fit: contain;
 }
 
+/* Ajustes al texto dentro de las secciones */
 .seccion p {
-    color: black;
-    font-size: 10px; /* Texto más pequeño */
-    padding-left: 10px;
+    padding-top: 12px;
+    color: #333; /* Color de texto más suave */
+    font-size: 11px;
+    font-weight: 500;
 }
 
-.seccionAdmin{
+.seccionAdmin {
     width: 100%;
     align-items: start;
     display: flex;

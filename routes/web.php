@@ -4,7 +4,9 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PiezaController;
 use App\Http\Controllers\ComentarioController;
+use App\Http\Middleware\IsAdmin;
 use App\Http\Controllers\FabricanteController;
+use App\Models\Pieza;
 
 //Ruta de la página principal, sin autenticación
 Route::get('/', function () {
@@ -36,14 +38,14 @@ Route::middleware('auth')->group(function () {
     // Piezas
     Route::get('/piezas', [PiezaController::class, 'index'])->name('piezas.index');
     Route::get('/pieza/{id}', [PiezaController::class, 'show'])->name('pieza.show');
-    Route::get('/piezas/create', [PiezaController::class, 'create'])->name('piezas.create');
-    Route::post('/piezas/create', [PiezaController::class, 'store'])->name('piezas.create');
     //El store se usa para crear un comentario cuando se haga una peticion post a pieza/id
     Route::post('/pieza/{id}', [ComentarioController::class, 'store'])->name('pieza.show');
-    Route::post('/pieza', [PiezaController::class, 'store'])->name('pieza.store');
+    //Route::post('/pieza', [PiezaController::class, 'store'])->name('pieza.store');
+    //Ruta para cuando se desea editar una pieza
     Route::get('/pieza/{id}/editar', [PiezaController::class, 'edit'])->name('pieza.edit');
     Route::put('/pieza/{id}', [PiezaController::class, 'update'])->name('pieza.update');
-    Route::delete('/pieza/{id}', [PiezaController::class, 'destroy'])->name('pieza.destroy');
+    //Se llama a la funcion eliminar
+    Route::get('/pieza/{id}/eliminar', [PiezaController::class, 'destroy'])->name('pieza.destroy');
 
     // Fabricantes
     Route::get('/fabricante/{id}', [FabricanteController::class, 'show'])->name('fabricante.show');
@@ -51,5 +53,14 @@ Route::middleware('auth')->group(function () {
     // Comentarios
     Route::post('/comentarios', [ComentarioController::class, 'store'])->name('comentarios.store');
 });
+
+//PARTE DE ADMIN
+
+//Con el middleWare se le dice que solo se puede acceder si el usuario autenticado es admin, es decir
+//si la variable admin es true
+//Este middleware esta ubicado en app/Http/Middleware/IsAdmin.php
+Route::get('/piezas/create', [PiezaController::class, 'create'])->name('piezas.create')->middleware([IsAdmin::class, 'auth']);
+
+
 
 require __DIR__.'/auth.php';
