@@ -18,7 +18,14 @@ class PiezaController extends Controller
         //Se obtienen las piezas con sus puntuaciones
         // Paginación para mejor rendimiento
         $piezas = Pieza::with('puntuacion')->paginate(30);
-        return view('piezas.piezas', compact('piezas'));
+        $categorias = \App\Models\Categoria::all();
+        return view('piezas.piezas', compact('piezas','categorias'));
+    }
+
+    public function piezasCategoria($id){
+        //Se obtienen las piezas cual id de categoria sea el de la url
+        $piezasCategoria = Pieza::where('categoria_id', $id)->with('puntuacion')->paginate(30);
+        return view('piezas.piezas_categorias', compact('piezasCategoria'));
     }
 
     /**

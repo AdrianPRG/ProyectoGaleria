@@ -8,6 +8,12 @@
         <a href="piezas/create" class="btn btn-success">Añadir Pieza</a>
        </div>
     @endif
+    <div class="categorias me-5">
+            <h4>Categorias</h4>
+            @foreach($categorias as $categoria)
+                <a href="piezas/categoria/{{ $categoria->id }}" class="categoria-link">{{ $categoria->nombre }}</a>
+            @endforeach
+    </div>
     @foreach($piezas as $pieza)
         <div class="pieza">
             <div class="seccion tituloPieza">

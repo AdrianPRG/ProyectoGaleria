@@ -48,6 +48,9 @@ Route::middleware('auth')->group(function () {
     //Se llama a la funcion eliminar
     Route::get('/pieza/{id}/eliminar', [PiezaController::class, 'destroy'])->name('pieza.destroy');
 
+    //Para obtener las piezas de una categoria
+
+    Route::get('/piezas/categoria/{id}', [PiezaController::class, 'piezasCategoria'])->name('piezascategoria.index');
 
     // Fabricantes
     Route::get('/fabricante/{id}', [FabricanteController::class, 'show'])->name('fabricante.show');
