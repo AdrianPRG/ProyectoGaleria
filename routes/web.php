@@ -47,8 +47,10 @@ Route::middleware('auth')->group(function () {
     //Se llama a la funcion eliminar
     Route::get('/pieza/{id}/eliminar', [PiezaController::class, 'destroy'])->name('pieza.destroy');
 
+
     // Fabricantes
     Route::get('/fabricante/{id}', [FabricanteController::class, 'show'])->name('fabricante.show');
+    Route::get('/fabricantes', [FabricanteController::class, 'index'])->name('fabricantes.index');
 
     // Comentarios
     Route::post('/comentarios', [ComentarioController::class, 'store'])->name('comentarios.store');
@@ -60,6 +62,7 @@ Route::middleware('auth')->group(function () {
 //si la variable admin es true
 //Este middleware esta ubicado en app/Http/Middleware/IsAdmin.php
 Route::get('/piezas/create', [PiezaController::class, 'create'])->name('piezas.create')->middleware([IsAdmin::class, 'auth']);
+Route::post('/piezas/create', [PiezaController::class, 'store'])->name('piezas.create')->middleware([IsAdmin::class, 'auth']);
 
 
 

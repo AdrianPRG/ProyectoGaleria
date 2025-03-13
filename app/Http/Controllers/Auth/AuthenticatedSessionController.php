@@ -31,7 +31,7 @@ class AuthenticatedSessionController extends Controller
         // Eliminar la URL de redirección guardada (si existe)
         $request->session()->forget('url.intended');
 
-        return redirect()->route('piezas.index');
+        return redirect()->route('verification.notice');
     }
 
     /**

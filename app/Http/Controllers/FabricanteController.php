@@ -16,5 +16,11 @@ class FabricanteController extends Controller
         return view('fabricantes.fabricante', compact('fabricante'));
     }
 
+    public function index()
+    {
+        $fabricantes = Fabricante::all();
+        return view('fabricantes.fabricantes', compact('fabricantes'));
+    }
+
     
 }
