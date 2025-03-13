@@ -226,6 +226,11 @@ unset($__sessionArgs); ?>
 <?php unset($__componentOriginald0f1fd2689e4bb7060122a5b91fe8561); ?>
 <?php endif; ?>
             </div>
+
+            <a href="<?php echo e(url('auth/github')); ?>">
+            Iniciar sesión con GitHub
+            </a>
+
         </form>
      <?php echo $__env->renderComponent(); ?>
 <?php endif; ?>
