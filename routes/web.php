@@ -63,6 +63,8 @@ Route::middleware('auth')->group(function () {
 //Este middleware esta ubicado en app/Http/Middleware/IsAdmin.php
 Route::get('/piezas/create', [PiezaController::class, 'create'])->name('piezas.create')->middleware([IsAdmin::class, 'auth']);
 Route::post('/piezas/create', [PiezaController::class, 'store'])->name('piezas.create')->middleware([IsAdmin::class, 'auth']);
+Route::post('/fabricantes/create', [FabricanteController::class, 'store'])->name('fabricantes.create')->middleware([IsAdmin::class, 'auth']);
+Route::get('/fabricante/{id}/eliminar', [FabricanteController::class, 'eliminar'])->name('fabricantes.create')->middleware([IsAdmin::class, 'auth']);
 
 
 

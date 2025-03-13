@@ -35,6 +35,7 @@ class Pieza extends Model
     //Accede a la tabla puntuacion y saca las puntuaciones de la pieza
     public function puntuacion()
     {
+        //Devolvemos las puntuaciones
         return $this->hasMany(Puntuacion::class, 'pieza_id');
     }
 

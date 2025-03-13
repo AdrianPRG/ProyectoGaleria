@@ -22,5 +22,11 @@ class FabricanteController extends Controller
         return view('fabricantes.fabricantes', compact('fabricantes'));
     }
 
+    public function eliminar($id){
+        $fabricante = Fabricante::findOrFail($id);
+        $fabricante->delete();
+        return redirect()->route('fabricantes.index');
+    }
+
     
 }

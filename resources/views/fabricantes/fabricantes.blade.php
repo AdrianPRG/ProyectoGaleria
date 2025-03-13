@@ -1,44 +1,37 @@
-<link rel="stylesheet" href="{{ asset('css/fabricantes.css') }}">
+<link href="{{ asset('css/fabricantes.css') }}" rel="stylesheet">
+@include('components.cabecera')
+
 <div class="container">
-    <h1 class="mb-4">Lista de Fabricantes</h1>
+    <h1>Lista de Fabricantes</h1>
 
-    <a href="aa" class="btn btn-success mb-3">Agregar Nuevo Fabricante</a>
+    @if(Auth()->user()->is_admin)
+        <a href="aa" class="btn btn-success">Agregar Nuevo Fabricante</a>
+    @endif
 
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Descripción</th>
-                <th>Imagen</th>
-                <th>Activo</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($fabricantes as $fabricante)
-                <tr>
-                    <td>{{ $fabricante->id }}</td>
-                    <td>{{ $fabricante->nombre }}</td>
-                    <td>{{ $fabricante->descripcion }}</td>
-                    <td>
-                        @if ($fabricante->imagen)
-                           <!-- <img src="{{ asset('storage/' . $fabricante->imagen) }}" alt="Imagen de {{ $fabricante->nombre }}" width="80"> -->
-                        @else
-                            No disponible
-                        @endif
-                    </td>
-                    <td>{{ $fabricante->activo ? 'Sí' : 'No' }}</td>
-                    <td>
-                        <a href="fabricante/{{ $fabricante->id }}" class="btn btn-info">Ver</a>
-                        <form action="" method="POST" style="display:inline;">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
+    <div class="grid-container">
+        @foreach ($fabricantes as $fabricante)
+        <div class="column"> <!-- Cambié 'card' por 'column' -->
+            <h2>{{ $fabricante->nombre }}</h2>
+            <div class="image-container">
+                @if ($fabricante->imagen)
+                    <img src="{{ asset('storage/' . $fabricante->imagen) }}" alt="{{ $fabricante->nombre }}">
+                @else
+                    <p class="no-image">Imagen no disponible</p>
+                @endif
+            </div>
+            <p><strong>ID:</strong> {{ $fabricante->id }}</p>
+            <p><strong>Activo:</strong> 
+                <span class="status {{ $fabricante->activo ? 'activo' : 'inactivo' }}">
+                    {{ $fabricante->activo ? 'Sí' : 'No' }}
+                </span>
+            </p>
+            <div class="column-buttons"> <!-- Cambié 'card-buttons' por 'column-buttons' -->
+                <a href="fabricante/{{ $fabricante->id }}" class="btn btn-success">Ver</a>
+                @if(Auth()->user()->is_admin)
+                    <a href="fabricante/{{ $fabricante->id }}/eliminar" class="btn btn-danger">Eliminar</a>
+                @endif
+            </div>
+        </div>
+        @endforeach
+    </div>
 </div>
