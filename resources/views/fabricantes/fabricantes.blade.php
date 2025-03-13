@@ -5,7 +5,7 @@
     <h1>Lista de Fabricantes</h1>
 
     @if(Auth()->user()->is_admin)
-        <a href="aa" class="btn btn-success">Agregar Nuevo Fabricante</a>
+        <a href="fabricantes/create" class="btn btn-success">Agregar Nuevo Fabricante</a>
     @endif
 
     <div class="grid-container">

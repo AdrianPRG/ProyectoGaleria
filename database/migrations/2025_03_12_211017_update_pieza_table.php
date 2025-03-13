@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::table('pieza', function (Blueprint $table) {
             $table->string('imagen')->nullable()->change();
+            $table->string('descripcion',200);
         });
     }
 
